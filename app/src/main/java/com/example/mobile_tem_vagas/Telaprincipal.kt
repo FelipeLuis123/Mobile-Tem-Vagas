@@ -9,7 +9,7 @@ class Telaprincipal : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_telaprincipal)
 
-        supportActionBar!!. hide()
+//        supportActionBar?.hide()
         window.statusBarColor = Color.parseColor("#5B00FF")
     }
 }

@@ -68,8 +68,8 @@ class MainActivity : AppCompatActivity() {
         }, 3000)
     }
     private fun navegarTelaPrincipal(){
-        val intent = Intent(this, Telaprincipal::class.java)
-        startActivity(intent)
+        val segundaTela = Intent(this, Telaprincipal::class.java)
+        startActivity(segundaTela)
         finish()
     }
 }
