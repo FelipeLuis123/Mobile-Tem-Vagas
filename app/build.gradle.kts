@@ -75,5 +75,7 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+    implementation ("com.intuit.sdp:sdp-android:1.0.6")
+    implementation ("com.intuit.ssp:ssp-android:1.0.6")
 
 }
