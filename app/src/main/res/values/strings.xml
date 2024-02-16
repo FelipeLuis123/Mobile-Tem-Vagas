@@ -33,10 +33,7 @@
     <string name="hint_cep">CEP</string>
     <string name="hint_numcasa">Número da casa</string>
     <string name="hint_preco">Preço do imóvel</string>
-    <string name="hint_qntdQuartos">Quantidade de quartos</string>
-    <string name="hint_qntdBanheiros">Quantidade de banheiros</string>
+    <string name="hint_comodos">Informe os comodos existentes</string>
     <string name="hint_campus">Campus</string>
-    <string name="hint_entrar">Sua dica de entrada aqui</string>
-
 
 </resources>

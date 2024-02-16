@@ -237,7 +237,7 @@
             android:id="@+id/btEntrar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/hint_entrar"
+            android:text="@string/hint_voltar"
             android:textAllCaps="false"
             android:padding="15dp"
             android:background="@drawable/backgrount_button_selector"

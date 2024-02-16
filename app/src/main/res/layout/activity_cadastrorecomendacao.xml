@@ -68,34 +68,6 @@
                 android:background="@drawable/background_edittext"/>
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/txtInputLayoutCampus"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/containerTop"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="80dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            app:boxStrokeColor="@color/light_blue"
-            app:hintAnimationEnabled="true"
-            app:hintTextColor="@color/black"
-            app:errorTextColor="@color/red"
-            app:errorEnabled="true"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editCampus"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/hint_campus"
-                android:inputType="text"
-                android:maxLines="1"
-                android:textSize="18sp"
-                android:padding="15dp"
-                android:background="@drawable/background_edittext"/>
-        </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/txtInputLayoutTelefoneProprietario"
@@ -104,7 +76,7 @@
             app:layout_constraintTop_toBottomOf="@id/containerTop"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="150dp"
+            android:layout_marginTop="80dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             app:boxStrokeColor="@color/light_blue"
@@ -133,7 +105,7 @@
             app:layout_constraintTop_toBottomOf="@id/containerTop"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="220dp"
+            android:layout_marginTop="150dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             app:boxStrokeColor="@color/light_blue"
@@ -156,42 +128,13 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/txtInputLayoutCep"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/containerTop"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="290dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            app:boxStrokeColor="@color/light_blue"
-            app:hintAnimationEnabled="true"
-            app:hintTextColor="@color/black"
-            app:errorTextColor="@color/red"
-            app:errorEnabled="true"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editCep"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/hint_cep"
-                android:inputType="number"
-                android:maxLines="1"
-                android:textSize="18sp"
-                android:padding="15dp"
-                android:background="@drawable/background_edittext"/>
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/txtInputLayoutNumerocasa"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/containerTop"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="360dp"
+            android:layout_marginTop="220dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             app:boxStrokeColor="@color/light_blue"
@@ -220,7 +163,7 @@
             app:layout_constraintTop_toBottomOf="@id/containerTop"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="430dp"
+            android:layout_marginTop="290dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             app:boxStrokeColor="@color/light_blue"
@@ -249,7 +192,7 @@
             app:layout_constraintTop_toBottomOf="@id/containerTop"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="500dp"
+            android:layout_marginTop="360dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             app:boxStrokeColor="@color/light_blue"
@@ -263,43 +206,13 @@
                 android:id="@+id/editQntdQuartos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/hint_qntdQuartos"
+                android:hint="@string/hint_comodos"
                 android:inputType="number"
                 android:maxLines="1"
                 android:textSize="18sp"
                 android:padding="15dp"
                 android:background="@drawable/background_edittext"/>
         </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/txtInputLayoutQntdBanheiros"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/containerTop"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="570dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            app:boxStrokeColor="@color/light_blue"
-            app:hintAnimationEnabled="true"
-            app:hintTextColor="@color/black"
-            app:errorTextColor="@color/red"
-            app:errorEnabled="true"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editQntdBanheiros"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/hint_qntdBanheiros"
-                android:inputType="number"
-                android:maxLines="1"
-                android:textSize="18sp"
-                android:padding="15dp"
-                android:background="@drawable/background_edittext"/>
-        </com.google.android.material.textfield.TextInputLayout>
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

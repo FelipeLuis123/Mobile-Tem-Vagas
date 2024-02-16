@@ -53,6 +53,10 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+        binding.txtTelaCadastro.setOnClickListener {
+            val intent = Intent(this, Telacadastro::class.java)
+            startActivity(intent)
+        }
     }
     private fun login(view :View) {
         val progressbar = binding.progressBar
@@ -72,5 +76,6 @@ class MainActivity : AppCompatActivity() {
         startActivity(segundaTela)
         finish()
     }
+
 }
 
