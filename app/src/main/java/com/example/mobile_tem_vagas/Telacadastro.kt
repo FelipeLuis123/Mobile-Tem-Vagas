@@ -22,7 +22,7 @@ class Telacadastro : AppCompatActivity() {
         // Configurações da sua activity...
         window.statusBarColor = Color.parseColor("#5B00FF")
 
-        binding.btEntrar.setOnClickListener {
+        binding.btCadastrar.setOnClickListener {
             val nome = binding.editNome.text.toString()
             val senha = binding.editSenha.text.toString()
             val usuario = binding.editUsuario.text.toString()
@@ -44,12 +44,14 @@ class Telacadastro : AppCompatActivity() {
                     exibirSnackbar("A Matricula precisa ter pelo menos 10 caracteres!")
                 }
                 else -> {
-                    // Chame a função de login ou navegação para a próxima tela aqui
-                    navegarTelaPrincipal()
-                    // ou
-                    // login()
+                    val intent = Intent(this, Telaprincipal::class.java)
+                    startActivity(intent)
                 }
             }
+        }
+        binding.btVoltar.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
         }
     }
 
