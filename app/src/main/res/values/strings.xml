@@ -36,5 +36,7 @@
     <string name="hint_qntdQuartos">Quantidade de quartos</string>
     <string name="hint_qntdBanheiros">Quantidade de banheiros</string>
     <string name="hint_campus">Campus</string>
+    <string name="hint_entrar">Sua dica de entrada aqui</string>
+
 
 </resources>

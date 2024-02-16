@@ -22,8 +22,6 @@
             app:layout_constraintTop_toTopOf="parent"
             android:background="@drawable/background_view_top"/>
 
-        <!--        app:layout_constraintTop_toBottomOf="@id/btEntrar"-->
-
         <TextView
             android:id="@+id/txt_TelaCadastro"
             android:layout_width="match_parent"
@@ -234,11 +232,12 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp" />
 
+        <!-- Adicionando o botão btEntrar -->
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btVoltar"
+            android:id="@+id/btEntrar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/hint_voltar"
+            android:text="@string/hint_entrar"
             android:textAllCaps="false"
             android:padding="15dp"
             android:background="@drawable/backgrount_button_selector"
