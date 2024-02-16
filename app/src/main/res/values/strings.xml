@@ -14,6 +14,7 @@
     <string name="capitao_poco">capitao_poco</string>
     <string name="first_fragment_label">Rótulo do Primeiro Fragmento</string>
     <string name="second_fragment_label">Rótulo do Segundo Fragmento</string>
+    <string name="hint_anuncie">ANUNCIE AQUI!</string>
 
     <!--    Campos de cadastro de usuário -->
     <string name="hint_nome_completo">Nome Completo</string>
@@ -34,6 +35,6 @@
     <string name="hint_numcasa">Número da casa</string>
     <string name="hint_preco">Preço do imóvel</string>
     <string name="hint_comodos">Informe os comodos existentes</string>
-    <string name="hint_campus">Campus</string>
+    <string name="hint_camera">Camera</string>
 
 </resources>

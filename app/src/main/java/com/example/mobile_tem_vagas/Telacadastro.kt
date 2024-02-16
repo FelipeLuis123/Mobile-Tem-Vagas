@@ -9,7 +9,6 @@ import android.content.Intent
 import android.view.View
 
 class Telacadastro : AppCompatActivity() {
-    // Declare uma propriedade para a instância do binding
     private lateinit var binding: ActivityTelacadastroBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
