@@ -81,4 +81,14 @@ dependencies {
     implementation ("com.intuit.sdp:sdp-android:1.0.6")
     implementation ("com.intuit.ssp:ssp-android:1.0.6")
 
+
+    implementation ("androidx.camera:camera-core:1.1.0-alpha08")
+    implementation ("androidx.camera:camera-camera2:1.1.0-alpha08")
+    implementation ("androidx.camera:camera-lifecycle:1.1.0-alpha08")
+
+
+
+
+
+
 }

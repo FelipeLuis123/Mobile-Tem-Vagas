@@ -39,6 +39,8 @@
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteY="53dp" />
 
+
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/txtInputLayoutNomeProprietario"
             android:layout_width="match_parent"
@@ -226,7 +228,9 @@
                 android:text="@string/hint_camera"
                 android:textAllCaps="false"
                 tools:ignore="NotSibling" />
+
         </com.google.android.material.textfield.TextInputLayout>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
