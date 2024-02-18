@@ -1,65 +1,56 @@
 package com.example.mobile_tem_vagas
 
+import android.content.ActivityNotFoundException
+import android.content.Intent
+import android.graphics.Bitmap
 import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
+import android.provider.MediaStore
 import android.util.Log
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import androidx.camera.core.CameraSelector
-import androidx.camera.core.Preview
-import androidx.camera.lifecycle.ProcessCameraProvider
-import androidx.core.content.ContextCompat
-import kotlinx.android.synthetic.main.activity_cadastrorecomendacao.*
-import java.util.concurrent.ExecutorService
-import java.util.concurrent.Executors
-
 
 
 class Cadastrorecomendacao : AppCompatActivity() {
 
-    private var cameraExecutor: ExecutorService? = null
+    lateinit var imageView: ImageView
+    lateinit var button: Button
+    val REQUEST_IMAGE_CAPTURE = 100
 
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cadastrorecomendacao)
 
-        Log.d("Cadastrorecomendacao", "onCreate() chamado")
+        imageView = findViewById(R.id.image_save)
+        button = findViewById(R.id.btCamera)
 
-        window.statusBarColor = Color.parseColor("#5B00FF")
+        button.setOnClickListener {
+            val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
 
-        // Configurar a câmera
-        cameraExecutor = Executors.newSingleThreadExecutor()
-        startCamera()
+
+                try {
+                    startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
+                } catch (e: ActivityNotFoundException) {
+                    Toast.makeText(this, "Error: " + e.localizedMessage, Toast.LENGTH_SHORT).show()
+                }
+
+        }
+
     }
 
-    private fun startCamera() {
-        val cameraProviderFuture = ProcessCameraProvider.getInstance(this)
-
-        cameraProviderFuture.addListener({
-            // Selecionar a câmera traseira como padrão
-            val cameraProvider: ProcessCameraProvider = cameraProviderFuture.get()
-            val preview = Preview.Builder().build().also {
-                it.setSurfaceProvider(cameraView.surfaceProvider)
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+            val imageBitmap = data?.extras?.get("data") as? Bitmap
+            imageView.setImageBitmap(imageBitmap)
+            } else {
+                super.onActivityResult(requestCode, resultCode, data)
             }
-            val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
-
-            try {
-                // Unbind existing use cases before rebinding
-                cameraProvider.unbindAll()
-
-                // Bind use cases to camera
-                cameraProvider.bindToLifecycle(
-                    this, cameraSelector, preview
-                )
-
-            } catch (exc: Exception) {
-                Log.e("Cadastrorecomendacao", "Erro ao iniciar a câmera: ${exc.message}")
-            }
-
-        }, ContextCompat.getMainExecutor(this))
+        }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        cameraExecutor?.shutdown()
-    }
-}
+

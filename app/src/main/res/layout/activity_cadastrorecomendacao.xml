@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/image"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -17,10 +18,10 @@
             android:id="@+id/containerTop"
             android:layout_width="match_parent"
             android:layout_height="200dp"
+            android:background="@drawable/background_view_top"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:background="@drawable/background_view_top"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/txt_TelaCadastro"
@@ -40,187 +41,186 @@
             tools:layout_editor_absoluteY="53dp" />
 
 
-
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/txtInputLayoutNomeProprietario"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/containerTop"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="10dp"
             android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
             app:boxStrokeColor="@color/light_blue"
+            app:errorEnabled="true"
+            app:errorTextColor="@color/red"
             app:hintAnimationEnabled="true"
             app:hintTextColor="@color/black"
-            app:errorTextColor="@color/red"
-            app:errorEnabled="true"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/containerTop">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editNomeProprietario"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/background_edittext"
                 android:hint="@string/hint_nomeproprietario"
                 android:inputType="text"
                 android:maxLines="1"
-                android:textSize="18sp"
                 android:padding="15dp"
-                android:background="@drawable/background_edittext"/>
+                android:textSize="18sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/txtInputLayoutTelefoneProprietario"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/containerTop"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="80dp"
             android:layout_marginStart="20dp"
+            android:layout_marginTop="80dp"
             android:layout_marginEnd="20dp"
             app:boxStrokeColor="@color/light_blue"
+            app:errorEnabled="true"
+            app:errorTextColor="@color/red"
             app:hintAnimationEnabled="true"
             app:hintTextColor="@color/black"
-            app:errorTextColor="@color/red"
-            app:errorEnabled="true"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/containerTop">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editTelefoneProprietario"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/background_edittext"
                 android:hint="@string/hint_telProprietario"
                 android:inputType="number"
                 android:maxLines="1"
-                android:textSize="18sp"
                 android:padding="15dp"
-                android:background="@drawable/background_edittext"/>
+                android:textSize="18sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/txtInputLayoutEndereco"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/containerTop"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="150dp"
             android:layout_marginStart="20dp"
+            android:layout_marginTop="150dp"
             android:layout_marginEnd="20dp"
             app:boxStrokeColor="@color/light_blue"
+            app:errorEnabled="true"
+            app:errorTextColor="@color/red"
             app:hintAnimationEnabled="true"
             app:hintTextColor="@color/black"
-            app:errorTextColor="@color/red"
-            app:errorEnabled="true"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/containerTop">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editTelefoneEndereco"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/background_edittext"
                 android:hint="@string/hint_endereco"
                 android:inputType="text"
                 android:maxLines="1"
-                android:textSize="18sp"
                 android:padding="15dp"
-                android:background="@drawable/background_edittext"/>
+                android:textSize="18sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/txtInputLayoutNumerocasa"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/containerTop"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="220dp"
             android:layout_marginStart="20dp"
+            android:layout_marginTop="220dp"
             android:layout_marginEnd="20dp"
             app:boxStrokeColor="@color/light_blue"
+            app:errorEnabled="true"
+            app:errorTextColor="@color/red"
             app:hintAnimationEnabled="true"
             app:hintTextColor="@color/black"
-            app:errorTextColor="@color/red"
-            app:errorEnabled="true"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/containerTop">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editNumerocasa"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/background_edittext"
                 android:hint="@string/hint_numcasa"
                 android:inputType="text"
                 android:maxLines="1"
-                android:textSize="18sp"
                 android:padding="15dp"
-                android:background="@drawable/background_edittext"/>
+                android:textSize="18sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/txtInputLayoutPreco"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/containerTop"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="290dp"
             android:layout_marginStart="20dp"
+            android:layout_marginTop="290dp"
             android:layout_marginEnd="20dp"
             app:boxStrokeColor="@color/light_blue"
+            app:errorEnabled="true"
+            app:errorTextColor="@color/red"
             app:hintAnimationEnabled="true"
             app:hintTextColor="@color/black"
-            app:errorTextColor="@color/red"
-            app:errorEnabled="true"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/containerTop">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editPreco"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/background_edittext"
                 android:hint="@string/hint_preco"
                 android:inputType="number"
                 android:maxLines="1"
-                android:textSize="18sp"
                 android:padding="15dp"
-                android:background="@drawable/background_edittext"/>
+                android:textSize="18sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/txtInputLayoutQntdQuartos"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/containerTop"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="360dp"
             android:layout_marginStart="20dp"
+            android:layout_marginTop="360dp"
             android:layout_marginEnd="20dp"
             app:boxStrokeColor="@color/light_blue"
+            app:errorEnabled="true"
+            app:errorTextColor="@color/red"
             app:hintAnimationEnabled="true"
             app:hintTextColor="@color/black"
-            app:errorTextColor="@color/red"
-            app:errorEnabled="true"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/containerTop">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editQntdQuartos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/background_edittext"
                 android:hint="@string/hint_comodos"
                 android:inputType="number"
                 android:maxLines="1"
-                android:textSize="18sp"
                 android:padding="15dp"
-                android:background="@drawable/background_edittext"/>
+                android:textSize="18sp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btCamera"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="0dp"
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/backgrount_button_selector"
                 android:enabled="true"
@@ -229,7 +229,35 @@
                 android:textAllCaps="false"
                 tools:ignore="NotSibling" />
 
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btCadastrar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/hint_adicionar"
+                android:textAllCaps="false"
+                android:padding="15dp"
+                android:background="@drawable/backgrount_button_selector"
+                android:enabled="true"
+                app:layout_constraintTop_toBottomOf="@id/txtInputLayoutSenha"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="0dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp" />
+
+            <ImageView
+                android:id="@+id/image_save"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.495"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_editor_absoluteY="788dp"
+                tools:srcCompat="@tools:sample/avatars" />
+
         </com.google.android.material.textfield.TextInputLayout>
+
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

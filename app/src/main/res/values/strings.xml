@@ -36,5 +36,6 @@
     <string name="hint_preco">Preço do imóvel</string>
     <string name="hint_comodos">Informe os comodos existentes</string>
     <string name="hint_camera">Camera</string>
+    <string name="hint_adicionar">Adicionar recomendação</string>
 
 </resources>
