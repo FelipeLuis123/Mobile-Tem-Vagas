@@ -78,16 +78,8 @@ class Telacadastro : AppCompatActivity() {
         startActivity(telaprincipal)
         finish()
     }
-    private fun createNotificationChannel() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val channel = NotificationChannel(CHANNEL_ID, "Primeiro canal",
-                NotificationManager.IMPORTANCE_DEFAULT)
-                channel.description = "Testando meu primeiro canal"
 
-            val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-            notificationManager.createNotificationChannel(channel)
-        }
-    }
+
 
     // Exibir notificação push
     private fun showNotification() {
@@ -114,6 +106,16 @@ class Telacadastro : AppCompatActivity() {
                 return
             }
             notify(1, builder.build())
+        }
+    }
+    private fun createNotificationChannel() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val channel = NotificationChannel(CHANNEL_ID, "Primeiro canal",
+                NotificationManager.IMPORTANCE_DEFAULT)
+            channel.description = "Testando meu primeiro canal"
+
+            val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.createNotificationChannel(channel)
         }
     }
 }
