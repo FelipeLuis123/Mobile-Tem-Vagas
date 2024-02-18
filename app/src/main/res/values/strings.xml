@@ -38,4 +38,10 @@
     <string name="hint_camera">Camera</string>
     <string name="hint_adicionar">Adicionar recomendação</string>
 
+
+    <string name="channel_name">TemVagasChannel</string>
+    <string name="channel_description">Canal para notificações do Tem Vagas</string>
+    <string name="notification_title">TEM VAGAS</string>
+    <string name="notification_text">Seu cadastro foi realizado, seja bem-vindo!</string>
+
 </resources>
