@@ -1,5 +1,6 @@
 package com.example.mobile_tem_vagas
 
+
 import android.graphics.Color
 import android.os.Bundle
 import android.os.Looper
