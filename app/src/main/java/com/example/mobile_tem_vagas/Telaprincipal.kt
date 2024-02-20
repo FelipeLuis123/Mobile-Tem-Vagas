@@ -1,7 +1,6 @@
 package com.example.mobile_tem_vagas
 
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
@@ -76,6 +75,7 @@ class Telaprincipal : AppCompatActivity() {
                 this,
                 arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION), 100
             )
+            Log.e("TAG", "Permissão de localização não concedida.")
             return
         }
 
@@ -84,9 +84,16 @@ class Telaprincipal : AppCompatActivity() {
                 if (location != null) {
                     // Chame o método para mostrar o mapa com a localização atual
                     mostrarMapaMinhaLocalizacao(location.latitude, location.longitude)
+                } else {
+                    Log.e("TAG", "Localização é nula.")
                 }
             }
+            .addOnFailureListener { e ->
+                Log.e("TAG", "Erro ao obter a localização: ${e.message}")
+            }
     }
+
+
 
     private fun mostrarMapaMinhaLocalizacao(latitude: Double, longitude: Double) {
         val uri = Uri.parse("geo:$latitude,$longitude?q=$latitude,$longitude")
