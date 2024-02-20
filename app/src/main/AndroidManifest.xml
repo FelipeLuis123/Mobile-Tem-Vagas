@@ -24,10 +24,6 @@
         android:theme="@style/Theme.MobileTemVagas"
         tools:targetApi="31" >
 
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="SUA_CHAVE_DA_API_DO_GOOGLE_MAPS" />
-
         <activity android:name=".Telacadastro"/>
         <activity
             android:name=".Cadastrorecomendacao"

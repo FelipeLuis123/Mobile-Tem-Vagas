@@ -10,7 +10,6 @@ android {
     defaultConfig {
         applicationId = "com.example.mobile_tem_vagas"
         minSdk = 25
-        //noinspection EditedTargetSdkVersion
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -30,25 +29,31 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = "1.8"
     }
-//    mexi aqui
-    viewBinding{
+
+    // Ajuste aqui: 'enable' para 'enabled'
+    viewBinding {
         enable = true
     }
+
     buildFeatures {
         compose = true
         viewBinding = true
     }
+
     composeOptions {
         kotlinCompilerExtensionVersion = "1.4.3"
     }
-    packaging {
+
+    packagingOptions {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
@@ -56,7 +61,6 @@ android {
 }
 
 dependencies {
-
     implementation("com.google.android.material:material:1.11.0")
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
@@ -80,20 +84,13 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
-    implementation ("com.intuit.sdp:sdp-android:1.0.6")
-    implementation ("com.intuit.ssp:ssp-android:1.0.6")
+    implementation("com.intuit.sdp:sdp-android:1.0.6")
+    implementation("com.intuit.ssp:ssp-android:1.0.6")
 
-
-    implementation ("androidx.camera:camera-core:1.1.0-alpha08")
-    implementation ("androidx.camera:camera-camera2:1.1.0-alpha08")
-    implementation ("androidx.camera:camera-lifecycle:1.1.0-alpha08")
-    implementation ("com.google.android.gms:play-services-location:18.0.0")
-    implementation ("com.google.android.gms:play-services-maps:17.0.1")
-
-
-
-
-
-
-
+    // Ajuste aqui: Adicionados os parênteses nas dependências
+    implementation("androidx.camera:camera-core:1.1.0-alpha08")
+    implementation("androidx.camera:camera-camera2:1.1.0-alpha08")
+    implementation("androidx.camera:camera-lifecycle:1.1.0-alpha08")
+    implementation("com.google.android.gms:play-services-location:18.0.0")
+    implementation("com.google.android.gms:play-services-maps:17.0.1")
 }
