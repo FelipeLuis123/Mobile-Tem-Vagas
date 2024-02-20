@@ -95,6 +95,7 @@ class Telaprincipal : AppCompatActivity() {
 
 
 
+
     private fun mostrarMapaMinhaLocalizacao(latitude: Double, longitude: Double) {
         val uri = Uri.parse("geo:$latitude,$longitude?q=$latitude,$longitude")
         val mapIntent = Intent(Intent.ACTION_VIEW, uri)
