@@ -20,11 +20,13 @@ import com.example.mobile_tem_vagas.databinding.ActivityMainBinding
 import com.google.android.material.snackbar.Snackbar
 import android.os.Handler
 import android.content.Intent
+import com.google.firebase.auth.FirebaseAuth
 
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private val auth = FirebaseAuth.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,24 +35,24 @@ class MainActivity : AppCompatActivity() {
 
         window.statusBarColor = Color.parseColor("#FFFFFF")
 
-        binding.btEntrar.setOnClickListener{
+        binding.btEntrar.setOnClickListener{view ->
 
-            val user = binding.editUser.text.toString()
+            val email = binding.editUser.text.toString()
             val senha = binding.editSenha.text.toString()
 
-            when{
-                user.isEmpty() -> {
-                    binding.editUser.error="Preencha o Usuário!"
-                }
-                senha.isEmpty() -> {
-                    binding.editSenha.error="Preencha a Senha!"
-                }
-                senha.length <= 5 -> {
-                    val snackbar = Snackbar.make(it, "A senha precisa ter pelo menos 6 caracteres!", Snackbar.LENGTH_SHORT)
+            if (email.isEmpty() || senha.isEmpty()){
+                val snackbar = Snackbar.make(view, "Preencha todos os campos",Snackbar.LENGTH_SHORT)
+                snackbar.setBackgroundTint(Color.RED)
+                snackbar.show()
+            }else{
+                auth.signInWithEmailAndPassword(email, senha).addOnCompleteListener{autenticacao ->
+                    if (autenticacao.isSuccessful){
+                        navegarTelaPrincipal()
+                    }
+                }.addOnFailureListener{
+                    val snackbar = Snackbar.make(view, "Erro: Usuário não existe!",Snackbar.LENGTH_SHORT)
+                    snackbar.setBackgroundTint(Color.RED)
                     snackbar.show()
-                }
-                else ->{
-                    login(it)
                 }
             }
         }
@@ -73,10 +75,8 @@ class MainActivity : AppCompatActivity() {
         }, 3000)
     }
     private fun navegarTelaPrincipal(){
-        val segundaTela = Intent(this, Telaprincipal::class.java)
-        startActivity(segundaTela)
+        val intent = Intent(this, Telaprincipal::class.java)
+        startActivity(intent)
         finish()
     }
-
 }
-

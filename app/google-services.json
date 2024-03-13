@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "898847789312",
+    "project_id": "mobile-tem-vagas",
+    "storage_bucket": "mobile-tem-vagas.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:898847789312:android:771bf3af0ab46c231063e5",
+        "android_client_info": {
+          "package_name": "com.example.mobile_tem_vagas"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAW7-2HhOIVWeEIOcjBO8SofUJNehLeOpk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

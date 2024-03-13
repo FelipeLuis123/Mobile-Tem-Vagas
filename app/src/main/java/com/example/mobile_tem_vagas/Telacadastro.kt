@@ -16,26 +16,31 @@ import android.view.View
 import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import com.google.firebase.FirebaseNetworkException
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
+import com.google.firebase.auth.FirebaseAuthUserCollisionException
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException
 
 class Telacadastro : AppCompatActivity() {
+
     private lateinit var binding: ActivityTelacadastroBinding
+
+    private val auth = FirebaseAuth.getInstance()
 
     private val CHANNEL_ID = "TemVagasChannel"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Inflar o layout usando o View Binding
         binding = ActivityTelacadastroBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Configurações da sua activity...
         window.statusBarColor = Color.parseColor("#5B00FF")
 
-        // Criar o canal de notificação
         createNotificationChannel()
 
-        binding.btCadastrar.setOnClickListener {
+        binding.btCadastrar.setOnClickListener {view ->
             val nome = binding.editNome.text.toString()
             val senha = binding.editSenha.text.toString()
             val usuario = binding.editUsuario.text.toString()
@@ -43,44 +48,35 @@ class Telacadastro : AppCompatActivity() {
             val email = binding.editEmail.text.toString()
             val matricula = binding.editMatricula.text.toString()
 
-            when {
-                nome.isEmpty() -> binding.editNome.error = "Preencha o nome completo!"
-                senha.isEmpty() -> binding.editSenha.error = "Preencha a Senha!"
-                senha.length <= 5 -> {
-                    exibirSnackbar("A senha precisa ter pelo menos 6 caracteres!")
-                }
-                usuario.isEmpty() -> binding.editUsuario.error = "Preencha seu usuário!"
-                telefone.isEmpty() -> binding.editTelefone.error = "Preencha o telefone!"
-                email.isEmpty() -> binding.editEmail.error = "Preencha o email!"
-                matricula.isEmpty() -> binding.editMatricula.error = "Preencha a matrícula!"
-                matricula.length <= 9 -> {
-                    exibirSnackbar("A Matricula precisa ter pelo menos 10 caracteres!")
-                }
-                else -> {
-                    val intent = Intent(this, Telaprincipal::class.java)
-                    startActivity(intent)
-                    showNotification()
+            if (nome.isEmpty() || senha.isEmpty() || usuario.isEmpty() || telefone.isEmpty() || email.isEmpty() || matricula.isEmpty()) {
+               val snackbar = Snackbar.make(view, "Preencha todos os campos!", Snackbar.LENGTH_SHORT)
+                snackbar.setBackgroundTint(Color.RED)
+                snackbar.show()
+                } else {
+                    auth.createUserWithEmailAndPassword(email, senha).addOnCompleteListener {cadastro ->
+                        if (cadastro.isSuccessful){
+//                            val snackbar = Snackbar.make(view, "Usuário cadastrado com sucesso!", Snackbar.LENGTH_SHORT)
+//                            snackbar.setBackgroundTint(Color.GREEN)
+//                            snackbar.show()
+                            val intent = Intent(this, MainActivity::class.java)
+                            startActivity(intent)
+                            showNotification()
+                        }
+                    }.addOnFailureListener{exception ->
+                        val mensagemError = when(exception){
+                            is FirebaseAuthWeakPasswordException -> "A senha precisa ter pelo menos 6 caracteres!"
+                            is FirebaseAuthInvalidCredentialsException -> "Preencha um email valido!"
+                            is FirebaseAuthUserCollisionException -> "Esta conta ja foi cadastrada!"
+                            is FirebaseNetworkException -> "sem conexão com a internet!"
+                            else -> "Erro ao cadastrar usuário!"
+                    }
+                        val snackbar = Snackbar.make(view, mensagemError, Snackbar.LENGTH_SHORT)
+                        snackbar.setBackgroundTint(Color.RED)
+                        snackbar.show()
                 }
             }
         }
-        binding.btVoltar.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-        }
     }
-
-    private fun exibirSnackbar(mensagem: String) {
-        Snackbar.make(binding.root, mensagem, Snackbar.LENGTH_SHORT).show()
-    }
-
-    private fun navegarTelaPrincipal() {
-        val telaprincipal = Intent(this, Telaprincipal::class.java)
-        startActivity(telaprincipal)
-        finish()
-    }
-
-
-
     // Exibir notificação push
     private fun showNotification() {
         val builder = NotificationCompat.Builder(this, CHANNEL_ID)
@@ -90,19 +86,11 @@ class Telacadastro : AppCompatActivity() {
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
 
         with(NotificationManagerCompat.from(this)) {
-            // notificationId é um número único para cada notificação que você deve definir
             if (ActivityCompat.checkSelfPermission(
                     applicationContext,
                     Manifest.permission.POST_NOTIFICATIONS
                 ) != PackageManager.PERMISSION_GRANTED
             ) {
-                // TODO: Consider calling
-                //    ActivityCompat#requestPermissions
-                // here to request the missing permissions, and then overriding
-                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                //                                          int[] grantResults)
-                // to handle the case where the user grants the permission. See the documentation
-                // for ActivityCompat#requestPermissions for more details.
                 return
             }
             notify(1, builder.build())
@@ -113,7 +101,6 @@ class Telacadastro : AppCompatActivity() {
             val channel = NotificationChannel(CHANNEL_ID, "Primeiro canal",
                 NotificationManager.IMPORTANCE_DEFAULT)
             channel.description = "Testando meu primeiro canal"
-
             val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
             notificationManager.createNotificationChannel(channel)
         }

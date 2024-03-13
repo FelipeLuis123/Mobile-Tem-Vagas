@@ -210,7 +210,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/background_edittext"
                 android:hint="@string/hint_comodos"
-                android:inputType="number"
+                android:inputType="text"
                 android:maxLines="1"
                 android:padding="15dp"
                 android:textSize="18sp" />

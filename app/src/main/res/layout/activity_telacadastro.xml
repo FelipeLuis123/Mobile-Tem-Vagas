@@ -118,7 +118,7 @@
                 android:id="@+id/editUsuario"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/hint_usuario"
+                android:hint="Usuário"
                 android:inputType="text"
                 android:maxLines="1"
                 android:textSize="18sp"
@@ -233,21 +233,7 @@
             android:layout_marginEnd="20dp" />
 
         <!-- Adicionando o botão btEntrar -->
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btVoltar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/hint_voltar"
-            android:textAllCaps="false"
-            android:padding="15dp"
-            android:background="@drawable/backgrount_button_selector"
-            android:enabled="true"
-            app:layout_constraintTop_toBottomOf="@id/txtInputLayoutSenha"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="350dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
