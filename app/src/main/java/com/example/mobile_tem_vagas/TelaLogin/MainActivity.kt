@@ -1,26 +1,22 @@
-package com.example.mobile_tem_vagas
+package com.example.mobile_tem_vagas.TelaLogin
 
 
 import android.graphics.Color
 import android.os.Bundle
 import android.os.Looper
 import android.view.View
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.mobile_tem_vagas.ui.theme.MobileTemVagasTheme
 import com.example.mobile_tem_vagas.databinding.ActivityMainBinding
 import com.google.android.material.snackbar.Snackbar
 import android.os.Handler
 import android.content.Intent
+import com.example.mobile_tem_vagas.Telacadastro
+import com.example.mobile_tem_vagas.Telaprincipal
+import com.google.firebase.FirebaseNetworkException
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
+import com.google.firebase.auth.FirebaseAuthUserCollisionException
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException
 
 
 class MainActivity : AppCompatActivity() {
@@ -49,10 +45,19 @@ class MainActivity : AppCompatActivity() {
                     if (autenticacao.isSuccessful){
                         navegarTelaPrincipal()
                     }
-                }.addOnFailureListener{
-                    val snackbar = Snackbar.make(view, "Erro: Usuário não existe!",Snackbar.LENGTH_SHORT)
+                }.addOnFailureListener{exception ->
+                    val mensagemError = when(exception){
+                        is FirebaseAuthWeakPasswordException -> "A senha precisa ter pelo menos 6 caracteres!"
+                        is FirebaseAuthInvalidCredentialsException -> "Preencha um email valido!"
+                        is FirebaseNetworkException -> "sem conexão com a internet!"
+                        else -> "Erro ao cadastrar usuário!"
+                    }
+                    val snackbar = Snackbar.make(view, mensagemError, Snackbar.LENGTH_SHORT)
                     snackbar.setBackgroundTint(Color.RED)
                     snackbar.show()
+//                    val snackbar = Snackbar.make(view, "Erro:Verifique se suas credenciais estão corretas!",Snackbar.LENGTH_SHORT)
+//                    snackbar.setBackgroundTint(Color.RED)
+//                    snackbar.show()
                 }
             }
         }
@@ -78,5 +83,15 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, Telaprincipal::class.java)
         startActivity(intent)
         finish()
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        val usuarioAtual = FirebaseAuth.getInstance().currentUser
+
+        if (usuarioAtual != null){
+            navegarTelaPrincipal()
+        }
     }
 }

@@ -10,38 +10,47 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.example.mobile_tem_vagas.TelaLogin.MainActivity
+import com.example.mobile_tem_vagas.databinding.ActivityTelaprincipalBinding
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
+import com.google.firebase.auth.FirebaseAuth
 
 class Telaprincipal : AppCompatActivity() {
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
 
+    private lateinit var binding: ActivityTelaprincipalBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         Log.d("TAG", "Telaprincipal onCreate")
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_telaprincipal)
+        binding = ActivityTelaprincipalBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.txtSair.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
+            val voltarTelaLogin = Intent(this, MainActivity::class.java)
+            startActivity(voltarTelaLogin)
+            finish()
+        }
 
         val btAnuncio: AppCompatButton = findViewById(R.id.btAnuncio)
         btAnuncio.setOnClickListener {
             abrirCadastroRecomendacao()
         }
-
         // Configurar o OnClickListener para o novo botão btVerLocalizacao
         val btVerLocalizacao: AppCompatButton = findViewById(R.id.btVerLocalizacao)
         btVerLocalizacao.setOnClickListener {
             verificarPermissoesELocalizacao()
         }
-
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
     }
-
     // Método a ser chamado quando o botão btAnuncio for clicado
     private fun abrirCadastroRecomendacao() {
         // Seu código para abrir a tela de cadastro de recomendação
         val intent = Intent(this, Cadastrorecomendacao::class.java)
         startActivity(intent)
     }
-
     // Método para verificar permissões e obter a localização atual
     private fun verificarPermissoesELocalizacao() {
         if (ContextCompat.checkSelfPermission(
@@ -58,7 +67,6 @@ class Telaprincipal : AppCompatActivity() {
             )
         }
     }
-
     // Método para obter a localização atual
     private fun obterLocalizacao() {
         Log.d("TAG", "Entrou em obterLocalizacao")
@@ -78,7 +86,6 @@ class Telaprincipal : AppCompatActivity() {
             Log.e("TAG", "Permissão de localização não concedida.")
             return
         }
-
         fusedLocationProviderClient.lastLocation
             .addOnSuccessListener { location ->
                 if (location != null) {
@@ -92,10 +99,6 @@ class Telaprincipal : AppCompatActivity() {
                 Log.e("TAG", "Erro ao obter a localização: ${e.message}")
             }
     }
-
-
-
-
     private fun mostrarMapaMinhaLocalizacao(latitude: Double, longitude: Double) {
         val uri = Uri.parse("geo:$latitude,$longitude?q=$latitude,$longitude")
         val mapIntent = Intent(Intent.ACTION_VIEW, uri)

@@ -12,10 +12,10 @@ import com.example.mobile_tem_vagas.databinding.ActivityTelacadastroBinding
 import com.google.android.material.snackbar.Snackbar
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.view.View
 import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import com.example.mobile_tem_vagas.TelaLogin.MainActivity
 import com.google.firebase.FirebaseNetworkException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
@@ -60,7 +60,7 @@ class Telacadastro : AppCompatActivity() {
 //                            snackbar.show()
                             val intent = Intent(this, MainActivity::class.java)
                             startActivity(intent)
-                            showNotification()
+                            finish()
                         }
                     }.addOnFailureListener{exception ->
                         val mensagemError = when(exception){

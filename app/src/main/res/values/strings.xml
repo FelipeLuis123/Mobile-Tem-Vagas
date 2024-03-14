@@ -1,13 +1,13 @@
 <resources>
     <string name="app_name">Mobile-Tem-Vagas</string>
 
-<!--    Campos de login do usuário-->
+    <!--    Campos de login do usuário-->
     <string name="hint_usuario">E-mail</string>
     <string name="hint_senha">Senha</string>
     <string name="txt_button_entrar">Entrar</string>
     <string name="txt_tela_cadastro">Não tem conta? cadastre-se!</string>
 
-<!--    campos de tela principal-->
+    <!--    campos de tela principal-->
     <string name="more" />
     <string name="_395">395</string>
     <string name="tem_vagas">tem vagas</string>
@@ -21,13 +21,13 @@
     <string name="hint_nome_completo">Nome Completo</string>
     <string name="hint_matricula">Matrícula</string>
     <string name="hint_email">E-mail</string>
-<!--    foi usado no cadastro de usuario a mesma string de SENHA de login -->
+    <!--    foi usado no cadastro de usuario a mesma string de SENHA de login -->
     <string name="hint_telefone">Telefone</string>
     <string name="txt_cadastro_de_usuario">Cadastro de usuário</string>
     <string name="hint_cadastrar">Cadastrar</string>
     <string name="hint_voltar">Voltar</string>
 
-<!--    Campos de cadastro de recomendação -->
+    <!--    Campos de cadastro de recomendação -->
     <string name="txt_cadastrorecomendacoes">Cadastro de recomendações</string>
     <string name="hint_nomeproprietario">Nome do proprietário</string>
     <string name="hint_telProprietario">Telefone do proprietário</string>
@@ -43,5 +43,7 @@
     <string name="channel_description">Canal para notificações do Tem Vagas</string>
     <string name="notification_title">TEM VAGAS</string>
     <string name="notification_text">Seu cadastro foi realizado, seja bem-vindo!</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
