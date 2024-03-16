@@ -55,9 +55,6 @@ class Telacadastro : AppCompatActivity() {
                 } else {
                     auth.createUserWithEmailAndPassword(email, senha).addOnCompleteListener {cadastro ->
                         if (cadastro.isSuccessful){
-//                            val snackbar = Snackbar.make(view, "Usuário cadastrado com sucesso!", Snackbar.LENGTH_SHORT)
-//                            snackbar.setBackgroundTint(Color.GREEN)
-//                            snackbar.show()
                             val intent = Intent(this, MainActivity::class.java)
                             startActivity(intent)
                             finish()

@@ -14,55 +14,70 @@
         android:background="@color/color_default"
         app:layout_constraintTop_toTopOf="parent" />
 
-<!--    <TextView-->
-<!--        android:id="@+id/textTitle"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginStart="@dimen/_16sdp"-->
-<!--        android:layout_marginLeft="@dimen/_16sdp"-->
-<!--        android:layout_marginTop="@dimen/_16sdp"-->
-<!--        android:text="@string/tem_vagas"-->
-<!--        android:textColor="@color/whit"-->
-<!--        android:textSize="@dimen/_20ssp"-->
-<!--        android:textStyle="bold"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"/>-->
+    <!--    <TextView-->
+    <!--        android:id="@+id/textTitle"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginStart="@dimen/_16sdp"-->
+    <!--        android:layout_marginLeft="@dimen/_16sdp"-->
+    <!--        android:layout_marginTop="@dimen/_16sdp"-->
+    <!--        android:text="@string/tem_vagas"-->
+    <!--        android:textColor="@color/whit"-->
+    <!--        android:textSize="@dimen/_20ssp"-->
+    <!--        android:textStyle="bold"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"/>-->
 
 
     <!-- MapView -->
 
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btAnuncio"
-        android:layout_width="167dp"
-        android:layout_height="46dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="128dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="12dp"
         android:background="@drawable/background_buttom_yellow"
         android:enabled="true"
         android:padding="15dp"
         android:text="@string/hint_anuncie"
         android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="@+id/viewHeaderBackground"
-        app:layout_constraintHorizontal_bias="0.072"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/viewHeaderBackground"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints,NotSibling" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btVerLocalizacao"
-        android:layout_width="178dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="138dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="12dp"
         android:background="@drawable/backgrount_button_selector"
         android:enabled="true"
-        android:padding="15dp"
-        android:text="Ver Minha Localização"
-        android:textAllCaps="false"
         android:onClick="buscarInformacaoGPS"
+        android:padding="15dp"
+        android:text="Ver Localização"
+        android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="@+id/viewHeaderBackground"
-        app:layout_constraintHorizontal_bias="0.932"
+        app:layout_constraintHorizontal_bias="0.468"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/viewHeaderBackground" />
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btperfil"
+        android:layout_width="138dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/backgrount_button_selector"
+        android:enabled="true"
+        android:padding="15dp"
+        android:text="Perfil"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="@+id/viewHeaderBackground"
+        app:layout_constraintHorizontal_bias="0.974"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/viewHeaderBackground" />
 
     <com.google.android.gms.maps.MapView
         android:id="@+id/mapView"

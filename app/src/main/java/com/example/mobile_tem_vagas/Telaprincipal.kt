@@ -1,5 +1,6 @@
 package com.example.mobile_tem_vagas
 
+import com.example.mobile_tem_vagas.Telaperfil
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -8,8 +9,10 @@ import android.util.Log
 import android.Manifest
 import android.content.pm.PackageManager
 import android.net.Uri
+import android.view.View
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.example.mobile_tem_vagas.CRUD.Cadastrorecomendacao
 import com.example.mobile_tem_vagas.TelaLogin.MainActivity
 import com.example.mobile_tem_vagas.databinding.ActivityTelaprincipalBinding
 import com.google.android.gms.location.FusedLocationProviderClient
@@ -27,27 +30,29 @@ class Telaprincipal : AppCompatActivity() {
         binding = ActivityTelaprincipalBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.btperfil.setOnClickListener {
+            val intent = Intent(this, Telaperfil::class.java)
+            startActivity(intent)
+            finish()
+        }
         binding.txtSair.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
             val voltarTelaLogin = Intent(this, MainActivity::class.java)
             startActivity(voltarTelaLogin)
             finish()
         }
-
-        val btAnuncio: AppCompatButton = findViewById(R.id.btAnuncio)
-        btAnuncio.setOnClickListener {
-            abrirCadastroRecomendacao()
-        }
-        // Configurar o OnClickListener para o novo botão btVerLocalizacao
-        val btVerLocalizacao: AppCompatButton = findViewById(R.id.btVerLocalizacao)
-        btVerLocalizacao.setOnClickListener {
-            verificarPermissoesELocalizacao()
+            val btAnuncio: AppCompatButton = findViewById(R.id.btAnuncio)
+            btAnuncio.setOnClickListener {
+                abrirCadastroRecomendacao()
+            }
+            val btVerLocalizacao: AppCompatButton = findViewById(R.id.btVerLocalizacao)
+            btVerLocalizacao.setOnClickListener {
+                verificarPermissoesELocalizacao()
         }
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
     }
     // Método a ser chamado quando o botão btAnuncio for clicado
     private fun abrirCadastroRecomendacao() {
-        // Seu código para abrir a tela de cadastro de recomendação
         val intent = Intent(this, Cadastrorecomendacao::class.java)
         startActivity(intent)
     }

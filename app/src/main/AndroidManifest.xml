@@ -23,28 +23,37 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MobileTemVagas"
         tools:targetApi="31" >
-
-        <activity android:name=".Telacadastro" />
-
         <activity
-            android:name=".Cadastrorecomendacao"
+            android:name=".Telacadastro" />
+        <activity
+            android:name=".CRUD.Cadastrorecomendacao"
             android:exported="true" />
         <activity
             android:name=".Telaprincipal"
             android:exported="true" />
-
+        <activity
+            android:name=".CRUD.TelaUpdate"
+            android:exported="true"/>
+        <activity
+            android:name=".CRUD.TelaDelete"
+            android:exported="true"/>
+        <activity
+            android:name=".CRUD.TelaRead"
+            android:exported="true" />
+        <activity
+            android:name=".Telaperfil"
+            android:exported="true"/>
         <activity
             android:name=".TelaLogin.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.MobileTemVagas" >
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action
+                    android:name="android.intent.action.MAIN" />
+                <category
+                    android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
-
 </manifest>

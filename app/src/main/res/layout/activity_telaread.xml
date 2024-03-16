@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/dark_blue"
+        tools:context=".TelaRead">
+
+        <View
+            android:id="@+id/containerTop"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/background_view_top"/>
+
+        <TextView
+            android:id="@+id/txt_TelaCadastro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:gravity="center"
+            android:text="Visualizar Recomendação"
+            android:textColor="@color/black"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="75dp"
+            tools:ignore="MissingConstraints"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtInputLayoutNome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/containerTop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            app:boxStrokeColor="@color/light_blue"
+            app:hintAnimationEnabled="true"
+            app:hintTextColor="@color/black"
+            app:errorTextColor="@color/red"
+            app:errorEnabled="true"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+
+        <!-- Campo de pesquisa -->
+
+    <!-- Campos de informações do imóvel -->
+    <EditText
+        android:id="@+id/campoPesquisa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/background_edittext"
+        android:hint="Pesquise pelo numero de telefone"
+        android:padding="8dp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonViewRecommendation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Visualizar Recomendação"
+                android:textAllCaps="false"
+                android:padding="5dp"
+                android:backgroundTint="@color/white"
+                android:background="@drawable/backgrount_button_selector"
+                android:enabled="true"
+                android:textSize="@dimen/_15sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="0dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/campoPesquisa"
+        android:layout_margin="16dp"
+        android:orientation="vertical">
+
+        <!-- Campo: Nome -->
+
+        <TextView
+            android:id="@+id/nomeProprietario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nome do proprietario"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/lerNome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:gravity="center"
+            android:textSize="18sp"/>
+
+        <!-- Campo: Endereço -->
+        <TextView
+            android:id="@+id/endereco"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Endereço"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/lerEndereco"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="18sp"
+            android:gravity="center"
+            />
+
+        <!-- Campo: Número da Casa -->
+        <TextView
+            android:id="@+id/numCasa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Número da Casa"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:gravity="center"
+            />
+
+        <TextView
+            android:id="@+id/lerNumCasa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="18sp"
+            android:gravity="center"/>
+
+        <!-- Campo: Preço do Imóvel -->
+        <TextView
+            android:id="@+id/preco"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Preço do Imóvel"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:gravity="center"
+            />
+
+        <TextView
+            android:id="@+id/lerPreco"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="18sp"
+            android:gravity="center"/>
+
+        <!-- Campo: Cômodos existentes -->
+        <TextView
+            android:id="@+id/comodos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cômodos Existentes"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/lerComodos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="18sp"
+            android:gravity="center"/>
+
+    </LinearLayout>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/Botaovoltar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Voltar"
+                android:textAllCaps="false"
+                android:padding="5dp"
+                android:backgroundTint="@color/white"
+                android:background="@drawable/backgrount_button_selector"
+                android:enabled="true"
+                android:textSize="@dimen/_15sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="80dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
